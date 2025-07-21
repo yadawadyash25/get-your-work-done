@@ -1,4 +1,4 @@
-  import React, { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
   const [task, setTask] = useState("");
@@ -28,6 +28,7 @@ function App() {
   return (
     <div style={{ maxWidth: 400, margin: "2rem auto", textAlign: "center" }}>
       <h1>To-Do List</h1>
+      <p style={{ color: "#666" }}>Add tasks that you need to complete!</p>
       <form onSubmit={addTask}>
         <input
           type="text"
@@ -40,6 +41,9 @@ function App() {
           Add
         </button>
       </form>
+          {/* Add a header above the list of tasks */}
+    <h2 style={{ marginTop: "2rem" }}>Task List</h2>
+      <p style={{ color: "#666" }}>Stay on top of your tasks, You Got THIS!</p>
       <ul style={{ listStyle: "none", padding: 0, marginTop: "2rem" }}>
         {tasks.map((t, i) => (
           <li
@@ -77,6 +81,17 @@ function App() {
           </li>
         ))}
       </ul>
+          {/* Add a header above the calendar */}
+    <h2 style={{ marginTop: "2rem" }}>Calendar</h2>
+    <p style={{ color: "#666" }}>What does your schedule look like this week?</p>
+      {/* Google Calendar Embed Below */}
+      <div style={{ margin: "2rem 0" }}>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://calendar.google.com/calendar/embed?src=ec7b34ffb2e6802b5f764aa8c57f362c9b9872cabfc992ab26f74ab308774ffb%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="500" height="300" frameborder="0" scrolling="no"></iframe>`
+          }}
+        />
+      </div>
     </div>
   );
 }
